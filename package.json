@@ -1,0 +1,21 @@
+{
+  "name": "projetoferreira",
+  "version": "1.0.0",
+  "description": "Projeto de loja online para distribuidora de peças automotivas, com login de cliente e preços personalizados.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictorGomes1010/Projetoferreiradistribuidoraloja.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/VictorGomes1010/Projetoferreiradistribuidoraloja/issues"
+  },
+  "homepage": "https://github.com/VictorGomes1010/Projetoferreiradistribuidoraloja#readme"
+}
