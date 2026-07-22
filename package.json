@@ -17,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/VictorGomes1010/Projetoferreiradistribuidoraloja/issues"
   },
-  "homepage": "https://github.com/VictorGomes1010/Projetoferreiradistribuidoraloja#readme"
+  "homepage": "https://github.com/VictorGomes1010/Projetoferreiradistribuidoraloja#readme",
+  "devDependencies": {
+    "dotenv": "^17.4.2",
+    "prisma": "^7.9.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.9.0"
+  }
 }
