@@ -11,3 +11,62 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Cliente {
+  id        Int      @id @default(autoincrement())
+  nome      String
+  email     String   @unique
+  senhaHash String
+  documento String?
+  criadoEm  DateTime @default(now())
+
+  pedidos         Pedido[]
+  precosEspeciais PrecoCliente[]
+}
+
+model Produto {
+  id        Int    @id @default(autoincrement())
+  nome      String
+  codigo    String @unique
+  descricao String?
+  precoBase Float
+  estoque   Int    @default(0)
+
+  itensPedido     ItemPedido[]
+  precosEspeciais PrecoCliente[]
+}
+
+model PrecoCliente {
+  id            Int   @id @default(autoincrement())
+  clienteId     Int
+  produtoId     Int
+  precoEspecial Float
+
+  cliente Cliente @relation(fields: [clienteId], references: [id])
+  produto Produto @relation(fields: [produtoId], references: [id])
+
+  @@unique([clienteId, produtoId])
+}
+
+model Pedido {
+  id        Int      @id @default(autoincrement())
+  clienteId Int
+  status    String   @default("pendente")
+  criadoEm  DateTime @default(now())
+  total     Float    @default(0)
+
+  cliente Cliente      @relation(fields: [clienteId], references: [id])
+  itens   ItemPedido[]
+}
+
+model ItemPedido {
+  id            Int   @id @default(autoincrement())
+  pedidoId      Int
+  produtoId     Int
+  quantidade    Int
+  precoUnitario Float
+
+  pedido  Pedido  @relation(fields: [pedidoId], references: [id])
+  produto Produto @relation(fields: [produtoId], references: [id])
+}
+
